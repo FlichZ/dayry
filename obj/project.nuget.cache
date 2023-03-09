@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eJ3zzyq6IyDQcfDKJ1X/j8728/WrVx7agQeBFbbuUSwSUXaaR79zp0Mic/OibidiCTSXOGXWFH/m9wSgoIrpWw==",
+  "dgSpecHash": "MSPmbTHCKpWipaxKRyHqKnI51cG2VI6Y1ZdLii9/xcWF6P7S7NLN/4cbcJCYRHi7zm6clE+LNBpQ2jRe61LHAw==",
   "success": true,
-  "projectFilePath": "C:\\mpt\\C#\\Notes\\Notes.csproj",
+  "projectFilePath": "C:\\Users\\zubas\\source\\repos\\Notes2.0\\Notes.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Shuvi\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\zubas\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }

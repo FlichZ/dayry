@@ -55,19 +55,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shuvi\\.nuget\\packages\\": {}
+    "C:\\Users\\zubas\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\mpt\\C#\\Notes\\Notes.csproj",
+      "projectUniqueName": "C:\\Users\\zubas\\Source\\Repos\\Notes2.0\\Notes.csproj",
       "projectName": "Notes",
-      "projectPath": "C:\\mpt\\C#\\Notes\\Notes.csproj",
-      "packagesPath": "C:\\Users\\Shuvi\\.nuget\\packages\\",
-      "outputPath": "C:\\mpt\\C#\\Notes\\obj\\",
+      "projectPath": "C:\\Users\\zubas\\Source\\Repos\\Notes2.0\\Notes.csproj",
+      "packagesPath": "C:\\Users\\zubas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zubas\\Source\\Repos\\Notes2.0\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Shuvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zubas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -117,7 +122,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

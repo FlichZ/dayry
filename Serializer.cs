@@ -13,12 +13,14 @@ namespace Notes
     {
         public static void Serialize(List<Note> notes)
         {
+            string pathJson = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\notes.json";
             string json = JsonConvert.SerializeObject(notes);
-            File.WriteAllText("C:\\mpt\\C#\\Notes\\notes.json", json);
+            File.WriteAllText(pathJson, json);
         }
         public static List<Note> Deserialize()
         {
-            string json = File.ReadAllText("C:\\mpt\\C#\\Notes\\notes.json");
+            string pathJson = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\notes.json";
+            string json = File.ReadAllText(pathJson);
             List<Note> notes = JsonConvert.DeserializeObject<List<Note>>(json);
             return notes;
         }

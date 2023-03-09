@@ -55,19 +55,8 @@
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="6" Grid.Column="3">
             <Button x:Name="SaveBtn" Content="Саве" Click="SaveBtn_Click"/>
         </Border>
-        <DataGrid
-            x:Name="Viewer"
-            AutoGenerateColumns="False"
-            Grid.Row="1"
-            Grid.ColumnSpan="2" Grid.RowSpan="5"
-            ItemsSource="{Binding notes}" SelectedCellsChanged="Viewer_SelectedCellsChanged">
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                        Width="*"
-                        Binding="{Binding Path=name}"
-                        Header="Название"
-                        IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+
+        <ListBox x:Name="Notes_list" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="2" Background="Black" Foreground="Violet" BorderBrush="#00000000" Margin="4,5,10,1" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Name}" SelectionChanged="Notes_list_SelectionChanged">
+        </ListBox>
     </Grid>
 </Window>

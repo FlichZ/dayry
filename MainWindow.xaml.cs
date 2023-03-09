@@ -37,15 +37,11 @@ namespace Notes
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             List<Note> notes = Serializer.Deserialize();
-            foreach (Note note in notes)
+            if (notes[Notes_list.SelectedIndex].name != "")
             {
-                if (Viewer.SelectedItem == note)
-                {
-                    note.name = Name.Text;
-                    note.description = Description.Text;
-                }
+                notes[Notes_list.SelectedIndex].name = Name.Text;
+                notes[Notes_list.SelectedIndex].description = Description.Text;
             }
-
             Serializer.Serialize(notes);
             ViewNotes();
         }
@@ -58,49 +54,60 @@ namespace Notes
                 notes = new List<Note>();
             }
             Note note = new Note();
-
-            note.name = Name.Text;
-            note.description = Description.Text;
-            note.date = DateTime.Parse(Date.Text);
-
-            notes.Add(note);
+            if (notes[Notes_list.SelectedIndex].name != "")
+            {
+                note.name = Name.Text;
+                note.description = Description.Text;
+                note.date = DateTime.Parse(Date.Text);
+                notes.Add(note);
+            }
             Serializer.Serialize(notes);
-            
             ViewNotes();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             List<Note> notes = Serializer.Deserialize();
-            foreach (Note note in notes)
-            {
-                if (Viewer.SelectedItem == note)
-                {
-                    notes.Remove(note);
-                }
-            }
+
+            notes.RemoveAt(Notes_list.SelectedIndex);
 
             Serializer.Serialize(notes);
             ViewNotes();
         }
 
-        private void ViewNotes() // я чёт вообще туплю, не могу понять как нормально привязать значения записок к столбцам.
+        private void ViewNotes()
         {
             List<Note> notes = Serializer.Deserialize();
-            List<Note> CheckedNotes = new List<Note>();
-            foreach (Note note in notes)
+            List<String> CheckedNotes = new List<String>();            
+            if (notes != null) 
             {
-                if (note.date == Date.SelectedDate)
+                CheckedNotes.Add("");
+                foreach (Note note in notes)
                 {
-                    CheckedNotes.Add(note);
+                    if (note.date == Date.SelectedDate)
+                    {
+                        CheckedNotes.Add(note.name);
+                    }
                 }
+                Notes_list.ItemsSource = CheckedNotes; 
             }
-            Viewer.ItemsSource = CheckedNotes;
         }
 
         private void ChangedDate(object sender, SelectionChangedEventArgs e)
         {
             ViewNotes();
+        }
+
+
+        private void Notes_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List<Note> notes = Serializer.Deserialize();
+            try
+            {
+                Name.Text = notes[Notes_list.SelectedIndex].name.ToString();
+                Description.Text = notes[Notes_list.SelectedIndex].description.ToString();
+            }
+            catch { }
         }
     }
 }
