@@ -44,12 +44,22 @@ namespace Notes
                 notes = new List<Note>();
             }
             Note note = new Note();
-            note.name = Name.Text;
-            note.description = Description.Text;
-            note.date = DateTime.Parse(Date.Text);
-            notes.Add(note);
-            Serializer.Serialize(notes);
-            ViewNotes();
+            if (string.IsNullOrEmpty(Name.Text) || string.IsNullOrWhiteSpace(Name.Text))
+            {
+                MessageBox.Show("Значение в поле (Название) не должно быть пустым");
+            }
+            else
+            {
+                if (SameNotes())
+                {
+                    note.name = Name.Text;
+                    note.description = Description.Text;
+                    note.date = DateTime.Parse(Date.Text);
+                    notes.Add(note);
+                    Serializer.Serialize(notes);
+                    ViewNotes();
+                }
+            }
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -92,6 +102,22 @@ namespace Notes
             ViewNotes();
         }
 
+        private bool SameNotes()
+        {
+            List<Note> notes = Serializer.Deserialize();
+            foreach (Note note in notes)
+            {
+                if (note.date == Date.SelectedDate)
+                {
+                    if (note.name == Name.Text)
+                    {
+                        MessageBox.Show("Такая запись уже есть") ;
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
         private void Notes_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -106,7 +132,7 @@ namespace Notes
 
         private void ShowErrorSelect()
         {
-            MessageBox.Show("Нельзя выбирать пустой слот");
+            MessageBox.Show("Нельзя удалять/изменять пустой слот");
         }
     }
 }
